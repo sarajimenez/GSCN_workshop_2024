@@ -4,7 +4,7 @@ execute:
     execute_notebooks: "off"
 
 repository:
-    url: https://sarajimenez.github.io/GSCN_workshop_2024/
-repository_provider: "github"
+    url: "https://sarajimenez.github.io/GSCN_workshop_2024/"
+    provider: "github"
 html:
     use_repository_button: true
