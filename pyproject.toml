@@ -3,17 +3,17 @@ requires = ['setuptools', 'setuptools_scm']
 build-backend = 'setuptools.build_meta'
 
 [project]
-name = "fancypackage"
+name = "GSCN_workshop_2024"
 version = "0.0.0"
-description = "Fancy Package"
+description = "GSCN computational single cell genomics workshop 2024"
 readme = "README.md"
 requires-python = ">=3.9"
 license = {file = "LICENSE"}
 authors = [
-    {name = "Jane Doe"},
+    {name = "Sara Jimenez"},
 ]
 maintainers = [
-    {name = "Jane Doe", email = "jane.doe@usa.com"},
+    {name = "Sara Jimenez", email = "sara.jimenez@helmholtz-munich.de"},
 ]
 urls.Documentation = "https://todo.com"  # TODO
 urls.Source = "https://github.com/url/to/repo.git"
@@ -24,9 +24,9 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-dev = [
-    "pre-commit",
-]
+#dev = [
+#    "pre-commit",
+#]
 
 [tool.black]
 line-length = 120
