@@ -1,9 +1,9 @@
-title: Single-cell analysis repository
-author: Philipp Weiler
+title: GSCN workshop 2024
+author: Sara Jimenez
 execute:
     execute_notebooks: "off"
 
 repository:
-    url: https://github.com/WeilerP/sc_analysis_template
+    url: https://sarajimenez.github.io/GSCN_workshop_2024/
 html:
     use_repository_button: true
