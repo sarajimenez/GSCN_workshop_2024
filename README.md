@@ -1,7 +1,7 @@
 # Single-cell analysis template repository
 
 This repository acts as a template notebook for the analysis of single-cell data and methods; the corresponding Jupyter
-Book is rendered [here](https://weilerp.github.io/sc_analysis_template/).
+Book is rendered [here](https://sarajimenez.github.io/GSCN_workshop_2024/).
 You can check the [CellRank 2 reproducibility repository](https://github.com/theislab/cellrank2_reproducibility)
 for an example repository following the same outline as this template.
 
