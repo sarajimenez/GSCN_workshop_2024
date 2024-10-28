@@ -5,6 +5,6 @@ execute:
 
 repository:
     url: https://sarajimenez.github.io/GSCN_workshop_2024/
-repository_provider = "github"
+repository_provider: "github"
 html:
     use_repository_button: true
