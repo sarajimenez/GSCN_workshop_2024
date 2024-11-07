@@ -1,6 +1,6 @@
 format: jb-book
 root: index
 parts:
-    - caption: Template
+    - caption: Session 1
       chapters:
-          - file: template
+          - file: session-1
