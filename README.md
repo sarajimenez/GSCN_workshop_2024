@@ -1,42 +1,13 @@
-# Single-cell analysis template repository
+# GSCN 
 
-This repository acts as a template notebook for the analysis of single-cell data and methods; the corresponding Jupyter
-Book is rendered [here](https://sarajimenez.github.io/GSCN_workshop_2024/).
-You can check the [CellRank 2 reproducibility repository](https://github.com/theislab/cellrank2_reproducibility)
-for an example repository following the same outline as this template.
+This repository is a collection of tutorials presented during the [GSCN workshop 2024 ‘Computational single cell genomics for stem cell biologists’](https://www.gscn.org/conferences-events/gscn-events/working-group-workshops) - November 7-8, 2024.  
 
-## Set up
+The corresponding Jupyter Book is rendered [here](https://sarajimenez.github.io/GSCN_workshop_2024/).
 
-1. Rename `src/fancypackage/`.
-2. Update `pyproject.toml` to include the correct information
-    - Project name
-    - Project description
-    - Project-specific Python requirements
-    - Project author
-    - Project maintainers
-    - Project URLs
-3. Update `src/fancypackage/core/_constants.py` to include any paths relevant to your analysis and that should be accessible from any script or Jupyter notebook
-4. Update this README to include the relevant information about your project.
-5. Ensure repository settings are set up correctly to build Jupyter Book:
-    - In `Settings > Actions > General > Workflow permissions`: Allow read and write permissions.
-    - In `Settings > Pages > Build and deployment`: Set the branch to `gh-pages`.
+## Material
 
-## Installation
+The data for each session can be found [here](https://drive.google.com/drive/folders/1mD36tCwFMJ5g4Fh5p5nptDXy_ObmK7ww?usp=sharing)
 
-```bash
-conda create -n fancyname-pyXX python=X.X --yes && conda activate fancyname-pyXX
-pip install -e ".[dev]"
-pre-commit install
 
-pip install jupyterlab ipywidgets
-python -m ipykernel install --user --name fancyname-pyXX --display-name "fancyname-pyXX"
-```
 
-## Things to keep in mind
 
-Whenever you use a new single-cell tool, add it to `known_bio` in `pyproject.toml` s.t. `isort` can work correctly.
-
-## Workflow
-
-The workflow for committing a notebook is as follows: Upon committing a notebook, the pre-commit hooks format your notebook
-and generate a corresponding script. You need to add the formatted notebook and Python script to the same commit for the commit to go through. The commit will now either be successful or not. If not, your Python script was formatted by the pre-commit hooks. In that case, you need to update your notebook accordingly, unstage the Python script, and recommit the notebook. You will iterate through this process until there are no inconsistencies between the notebook and its corresponding Python script.
