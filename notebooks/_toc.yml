@@ -4,3 +4,10 @@ parts:
     - caption: Session 1
       chapters:
           - file: session-1
+    - caption: Session 2
+      chapters:
+          - file: session-2
+    - caption: Session 3
+      chapters: 
+          - file: session-3.1
+          - file: session-3.2
