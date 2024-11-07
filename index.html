@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Single-cell analysis template repository &#8212; GSCN workshop 2024</title>
+    <title>GSCN workshop 2024 &#8212; GSCN workshop 2024</title>
   
   
   
@@ -159,7 +159,7 @@
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1 current active">
                 <a class="reference internal" href="#">
-                    Single-cell analysis template repository
+                    GSCN workshop 2024
                 </a>
             </li>
         </ul>
@@ -319,7 +319,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Single-cell analysis template repository</h1>
+    <h1>GSCN workshop 2024</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -329,10 +329,13 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up">Set up</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-keep-in-mind">Things to keep in mind</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material">Material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-1">Session-1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-2">Session-2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-3">Session-3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-4">Session-4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledments">Acknowledments</a></li>
 </ul>
             </nav>
         </div>
@@ -344,55 +347,58 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="single-cell-analysis-template-repository">
-<h1>Single-cell analysis template repository<a class="headerlink" href="#single-cell-analysis-template-repository" title="Link to this heading">#</a></h1>
-<p>This repository acts as a template notebook for the analysis of single-cell data and methods; the corresponding Jupyter
-Book is rendered <a class="reference external" href="https://github.com/sarajimenez/GSCN_workshop_2024">here</a>.
-You can check the <a class="reference external" href="https://github.com/theislab/cellrank2_reproducibility">CellRank 2 reproducibility repository</a>
-for an example repository following the same outline as this template.</p>
-<section id="set-up">
-<h2>Set up<a class="headerlink" href="#set-up" title="Link to this heading">#</a></h2>
+  <section class="tex2jax_ignore mathjax_ignore" id="gscn-workshop-2024">
+<h1>GSCN workshop 2024<a class="headerlink" href="#gscn-workshop-2024" title="Link to this heading">#</a></h1>
+<p>This repository is a collection of tutorials presented during the <a class="reference external" href="https://www.gscn.org/conferences-events/gscn-events/working-group-workshops">GSCN workshop 2024 ‘Computational single cell genomics for stem cell biologists’</a> - November 7-8, 2024.</p>
+<p>The corresponding Jupyter Book is rendered <a class="reference external" href="https://sarajimenez.github.io/GSCN_workshop_2024/">here</a>.</p>
+<section id="table-of-contents">
+<h2>Table of Contents<a class="headerlink" href="#table-of-contents" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><a class="reference internal" href="#Material"><span class="xref myst">Material</span></a></p></li>
+<li><p><a class="reference internal" href="#Session-1"><span class="xref myst">Session-1</span></a></p></li>
+<li><p><a class="reference internal" href="#Session-2"><span class="xref myst">Session-2</span></a></p></li>
+<li><p><a class="reference internal" href="#Session-3"><span class="xref myst">Session-3</span></a></p></li>
+<li><p><a class="reference internal" href="#Session-4"><span class="xref myst">Session-4</span></a></p></li>
+</ul>
+</section>
+<section id="material">
+<h2>Material<a class="headerlink" href="#material" title="Link to this heading">#</a></h2>
+<p>The data for each session can be found <a class="reference external" href="https://drive.google.com/drive/folders/1mD36tCwFMJ5g4Fh5p5nptDXy_ObmK7ww?usp=sharing">here</a>.<br />
+Material for the workshop has been adapted from the <a class="reference external" href="https://www.sc-best-practices.org/preamble.html">single-cell best practices book</a>, a live project from the Theis lab.<br />
+Recordings of previous single-cell RNA seq data analysis workshops can be found <a class="reference external" href="https://www.youtube.com/playlist?list=PL4rcQcNPLZxWQQH7LlRBMkAo5NWuHX1e3">here</a>.</p>
+</section>
+<section id="session-1">
+<h2>Session-1<a class="headerlink" href="#session-1" title="Link to this heading">#</a></h2>
 <ol class="arabic simple">
-<li><p>Rename <code class="docutils literal notranslate"><span class="pre">src/fancypackage/</span></code>.</p></li>
-<li><p>Update <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> to include the correct information</p>
-<ul class="simple">
-<li><p>Project name</p></li>
-<li><p>Project description</p></li>
-<li><p>Project-specific Python requirements</p></li>
-<li><p>Project author</p></li>
-<li><p>Project maintainers</p></li>
-<li><p>Project URLs</p></li>
-</ul>
-</li>
-<li><p>Update <code class="docutils literal notranslate"><span class="pre">src/fancypackage/core/_constants.py</span></code> to include any paths relevant to your analysis and that should be accessible from any script or Jupyter notebook</p></li>
-<li><p>Update this README to include the relevant information about your project.</p></li>
-<li><p>Ensure repository settings are set up correctly to build Jupyter Book:</p>
-<ul class="simple">
-<li><p>In <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Actions</span> <span class="pre">&gt;</span> <span class="pre">General</span> <span class="pre">&gt;</span> <span class="pre">Workflow</span> <span class="pre">permissions</span></code>: Allow read and write permissions.</p></li>
-<li><p>In <code class="docutils literal notranslate"><span class="pre">Settings</span> <span class="pre">&gt;</span> <span class="pre">Pages</span> <span class="pre">&gt;</span> <span class="pre">Build</span> <span class="pre">and</span> <span class="pre">deployment</span></code>: Set the branch to <code class="docutils literal notranslate"><span class="pre">gh-pages</span></code>.</p></li>
-</ul>
-</li>
+<li><p>Preprocessing and Quality Control (QC)</p></li>
+<li><p>Data normalization</p></li>
 </ol>
 </section>
-<section id="installation">
-<h2>Installation<a class="headerlink" href="#installation" title="Link to this heading">#</a></h2>
-<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>conda<span class="w"> </span>create<span class="w"> </span>-n<span class="w"> </span>fancyname-pyXX<span class="w"> </span><span class="nv">python</span><span class="o">=</span>X.X<span class="w"> </span>--yes<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>conda<span class="w"> </span>activate<span class="w"> </span>fancyname-pyXX
-pip<span class="w"> </span>install<span class="w"> </span>-e<span class="w"> </span><span class="s2">&quot;.[dev]&quot;</span>
-pre-commit<span class="w"> </span>install
-
-pip<span class="w"> </span>install<span class="w"> </span>jupyterlab<span class="w"> </span>ipywidgets
-python<span class="w"> </span>-m<span class="w"> </span>ipykernel<span class="w"> </span>install<span class="w"> </span>--user<span class="w"> </span>--name<span class="w"> </span>fancyname-pyXX<span class="w"> </span>--display-name<span class="w"> </span><span class="s2">&quot;fancyname-pyXX&quot;</span>
-</pre></div>
-</div>
+<section id="session-2">
+<h2>Session-2<a class="headerlink" href="#session-2" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Dimensionality reduction</p></li>
+<li><p>Clustering and annotation</p></li>
+<li><p>DGE</p></li>
+</ol>
 </section>
-<section id="things-to-keep-in-mind">
-<h2>Things to keep in mind<a class="headerlink" href="#things-to-keep-in-mind" title="Link to this heading">#</a></h2>
-<p>Whenever you use a new single-cell tool, add it to <code class="docutils literal notranslate"><span class="pre">known_bio</span></code> in <code class="docutils literal notranslate"><span class="pre">pyproject.toml</span></code> s.t. <code class="docutils literal notranslate"><span class="pre">isort</span></code> can work correctly.</p>
+<section id="session-3">
+<h2>Session-3<a class="headerlink" href="#session-3" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Trajectory analysis</p></li>
+<li><p>Multisample analysis</p></li>
+</ol>
 </section>
-<section id="workflow">
-<h2>Workflow<a class="headerlink" href="#workflow" title="Link to this heading">#</a></h2>
-<p>The workflow for committing a notebook is as follows: Upon committing a notebook, the pre-commit hooks format your notebook
-and generate a corresponding script. You need to add the formatted notebook and Python script to the same commit for the commit to go through. The commit will now either be successful or not. If not, your Python script was formatted by the pre-commit hooks. In that case, you need to update your notebook accordingly, unstage the Python script, and recommit the notebook. You will iterate through this process until there are no inconsistencies between the notebook and its corresponding Python script.</p>
+<section id="session-4">
+<h2>Session-4<a class="headerlink" href="#session-4" title="Link to this heading">#</a></h2>
+<ol class="arabic simple">
+<li><p>Introduction to spatial transcriptomics</p></li>
+</ol>
+</section>
+<section id="acknowledments">
+<h2>Acknowledments<a class="headerlink" href="#acknowledments" title="Link to this heading">#</a></h2>
+<p>Special thanks to the scverse community (especially the developers and the maintainers of scanpy and squidpy packages) and all the Theis lab for valuable contributions.<br />
+Huge thanks also go to <a class="reference external" href="https://www.mskcc.org/research/ski/labs/members/roshan-sharma">Roshan Sharma</a> from Dana Pe’er’s lab for kindly providing material for the workshop.</p>
 </section>
 <div class="toctree-wrapper compound">
 </div>
@@ -454,10 +460,13 @@ and generate a corresponding script. You need to add the formatted notebook and 
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#set-up">Set up</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#installation">Installation</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#things-to-keep-in-mind">Things to keep in mind</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#workflow">Workflow</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#table-of-contents">Table of Contents</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#material">Material</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-1">Session-1</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-2">Session-2</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-3">Session-3</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#session-4">Session-4</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#acknowledments">Acknowledments</a></li>
 </ul>
   </nav></div>
 
