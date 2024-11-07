@@ -14,7 +14,10 @@ The corresponding Jupyter Book is rendered [here](https://sarajimenez.github.io/
 
 ## Material
 
-The data for each session can be found [here](https://drive.google.com/drive/folders/1mD36tCwFMJ5g4Fh5p5nptDXy_ObmK7ww?usp=sharing)
+The data for each session can be found [here](https://drive.google.com/drive/folders/1mD36tCwFMJ5g4Fh5p5nptDXy_ObmK7ww?usp=sharing).  
+Material for the workshop has been adapted from the [single-cell best practices book](https://www.sc-best-practices.org/preamble.html), a live project from the Theis lab.   
+Recordings of previous single-cell RNA seq data analysis workshops can be found [here](https://www.youtube.com/playlist?list=PL4rcQcNPLZxWQQH7LlRBMkAo5NWuHX1e3).
+
 
 ## Session-1 
 
@@ -34,7 +37,12 @@ The data for each session can be found [here](https://drive.google.com/drive/fol
 
 ## Session-4
 
-1. Introduction to spatial transcriptomics 
+1. Introduction to spatial transcriptomics
+
+## Acknowledments
+
+Special thanks to the scverse community (especially the developers and the maintainers of scanpy and squidpy packages) and all the Theis lab for valuable contributions. 
+Huge thanks also go to [Roshan Sharma](https://www.mskcc.org/research/ski/labs/members/roshan-sharma) from Dana Pe'er's lab for kindly providing material for the workshop.
 
 
 
