@@ -172,12 +172,10 @@
 
 
 
-
 </ul>
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Session 2</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Introduction 2</a></li>
-
 
 
 
@@ -362,7 +360,6 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction 2</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#library-imports">Library imports</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-project-file-paths">Set project file paths</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load data</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#highly-variable-genes">Highly Variable Genes</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-pca">Dimensionality reduction: PCA</a><ul class="visible nav section-nav flex-column">
@@ -423,14 +420,6 @@
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="library-imports">
 <h1>Library imports<a class="headerlink" href="#library-imports" title="Link to this heading">#</a></h1>
-<p>Install all packages for the tutorial</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scanpy<span class="w"> </span>scrublet
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -441,41 +430,6 @@
 
 <span class="c1">#single cell library</span>
 <span class="kn">import</span> <span class="nn">scanpy</span> <span class="k">as</span> <span class="nn">sc</span>
-</pre></div>
-</div>
-</div>
-</div>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="set-project-file-paths">
-<h1>Set project file paths<a class="headerlink" href="#set-project-file-paths" title="Link to this heading">#</a></h1>
-<p>Let us set up the connection with Google Drive</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
-<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>We set up the file paths to the respective directories.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/My Drive/&#39;</span> <span class="c1">#this is the file path to your google drive (main directory)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span> <span class="c1">#shows all files in file_path</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>The data directory contains all processed data and <code class="docutils literal notranslate"><span class="pre">anndata</span></code> files.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_dir</span> <span class="o">=</span> <span class="n">file_path</span> <span class="o">+</span> <span class="s1">&#39;GSCN_workshop_2024/Data/&#39;</span> 
 </pre></div>
 </div>
 </div>
@@ -1277,6 +1231,21 @@ Name: PC-0, Length: 4000, dtype: float64
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">pp</span><span class="o">.</span><span class="n">neighbors</span><span class="p">(</span><span class="n">adata</span><span class="p">,</span> <span class="n">n_neighbors</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">use_rep</span><span class="o">=</span><span class="s1">&#39;X_pca&#39;</span><span class="p">,</span> <span class="n">metric</span><span class="o">=</span><span class="s1">&#39;euclidean&#39;</span><span class="p">,</span> <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;neighbors_30&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/Users/sara.jimenez/miniconda3/envs/scvi-env/lib/python3.9/site-packages/umap/distances.py:1063: NumbaDeprecationWarning: The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit()
+/Users/sara.jimenez/miniconda3/envs/scvi-env/lib/python3.9/site-packages/umap/distances.py:1071: NumbaDeprecationWarning: The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit()
+/Users/sara.jimenez/miniconda3/envs/scvi-env/lib/python3.9/site-packages/umap/distances.py:1086: NumbaDeprecationWarning: The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit()
+/Users/sara.jimenez/miniconda3/envs/scvi-env/lib/python3.9/site-packages/tqdm/auto.py:21: TqdmWarning: IProgress not found. Please update jupyter and ipywidgets. See https://ipywidgets.readthedocs.io/en/stable/user_install.html
+  from .autonotebook import tqdm as notebook_tqdm
+/Users/sara.jimenez/miniconda3/envs/scvi-env/lib/python3.9/site-packages/umap/umap_.py:660: NumbaDeprecationWarning: The &#39;nopython&#39; keyword argument was not supplied to the &#39;numba.jit&#39; decorator. The implicit default value for this argument is currently False, but it will be changed to True in Numba 0.59.0. See https://numba.readthedocs.io/en/stable/reference/deprecation.html#deprecation-of-object-mode-fall-back-behaviour-when-using-jit for details.
+  @numba.jit()
+OMP: Info #276: omp_set_nested routine deprecated, please use omp_set_max_active_levels instead.
 </pre></div>
 </div>
 </div>
@@ -2414,7 +2383,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x28b16ef10&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x3193fe2e0&gt;
 </pre></div>
 </div>
 <img alt="_images/4c0e2e69d8e419bdf13958408c56bdc0bb552106509804d63d09e3e06743c76e.png" src="_images/4c0e2e69d8e419bdf13958408c56bdc0bb552106509804d63d09e3e06743c76e.png" />
@@ -2578,7 +2547,7 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 11828 × 17698
     obs: &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;mt_pct_content&#39;, &#39;ribo_pct_content&#39;, &#39;doublet_score&#39;, &#39;doublet&#39;, &#39;G2_M_checkpoint&#39;, &#39;leiden_r1.5&#39;, &#39;leiden_r0.5&#39;, &#39;leiden&#39;
     var: &#39;gene_ids&#39;, &#39;feature_types&#39;, &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;, &#39;highly_variable&#39;, &#39;highly_variable_rank&#39;, &#39;means&#39;, &#39;variances&#39;, &#39;variances_norm&#39;
-    uns: &#39;log1p&#39;, &#39;hvg&#39;, &#39;pca&#39;, &#39;neighbors_30&#39;, &#39;umap&#39;, &#39;leiden&#39;, &#39;leiden_r1.5_colors&#39;, &#39;leiden_r0.5_colors&#39;, &#39;leiden_colors&#39;, &#39;rank_genes_groups&#39;
+    uns: &#39;log1p&#39;, &#39;hvg&#39;, &#39;pca&#39;, &#39;neighbors_30&#39;, &#39;umap&#39;, &#39;leiden&#39;, &#39;leiden_r1.5_colors&#39;, &#39;leiden_r0.5_colors&#39;, &#39;leiden_colors&#39;
     obsm: &#39;X_pca&#39;, &#39;X_umap&#39;
     varm: &#39;PCs&#39;
     layers: &#39;raw_data&#39;
@@ -2972,7 +2941,8 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># check how many cells per cell type annotated</span>
+<span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;annotated&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -3038,14 +3008,14 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 11827 × 17698
-    obs: &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;mt_pct_content&#39;, &#39;ribo_pct_content&#39;, &#39;G2_M_checkpoint&#39;, &#39;leiden&#39;, &#39;pheno_leiden&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>AnnData object with n_obs × n_vars = 11828 × 17698
+    obs: &#39;n_genes_by_counts&#39;, &#39;log1p_n_genes_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;pct_counts_in_top_50_genes&#39;, &#39;pct_counts_in_top_100_genes&#39;, &#39;pct_counts_in_top_200_genes&#39;, &#39;pct_counts_in_top_500_genes&#39;, &#39;mt_pct_content&#39;, &#39;ribo_pct_content&#39;, &#39;doublet_score&#39;, &#39;doublet&#39;, &#39;G2_M_checkpoint&#39;, &#39;leiden_r1.5&#39;, &#39;leiden_r0.5&#39;, &#39;leiden&#39;
     var: &#39;gene_ids&#39;, &#39;feature_types&#39;, &#39;n_cells_by_counts&#39;, &#39;mean_counts&#39;, &#39;log1p_mean_counts&#39;, &#39;pct_dropout_by_counts&#39;, &#39;total_counts&#39;, &#39;log1p_total_counts&#39;, &#39;n_cells&#39;, &#39;highly_variable&#39;, &#39;highly_variable_rank&#39;, &#39;means&#39;, &#39;variances&#39;, &#39;variances_norm&#39;
-    uns: &#39;draw_graph&#39;, &#39;hvg&#39;, &#39;leiden&#39;, &#39;leiden_colors&#39;, &#39;log1p&#39;, &#39;neighbors_30&#39;, &#39;pca&#39;, &#39;pheno_jaccard_q&#39;, &#39;pheno_leiden_colors&#39;, &#39;umap&#39;
-    obsm: &#39;X_draw_graph_fa&#39;, &#39;X_pca&#39;, &#39;X_umap&#39;
+    uns: &#39;log1p&#39;, &#39;hvg&#39;, &#39;pca&#39;, &#39;neighbors_30&#39;, &#39;umap&#39;, &#39;leiden&#39;, &#39;leiden_r1.5_colors&#39;, &#39;leiden_r0.5_colors&#39;, &#39;leiden_colors&#39;, &#39;rank_genes_groups&#39;, &#39;on_norm_log&#39;
+    obsm: &#39;X_pca&#39;, &#39;X_umap&#39;
     varm: &#39;PCs&#39;
     layers: &#39;raw_data&#39;
-    obsp: &#39;neighbors_30_connectivities&#39;, &#39;neighbors_30_distances&#39;, &#39;pheno_jaccard_ig&#39;
+    obsp: &#39;neighbors_30_distances&#39;, &#39;neighbors_30_connectivities&#39;
 </pre></div>
 </div>
 </div>
@@ -3126,7 +3096,6 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Introduction 2</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#library-imports">Library imports</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#set-project-file-paths">Set project file paths</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#load-data">Load data</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#highly-variable-genes">Highly Variable Genes</a></li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#dimensionality-reduction-pca">Dimensionality reduction: PCA</a><ul class="visible nav section-nav flex-column">
