@@ -361,7 +361,12 @@
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#re-do-pre-processing">Re-do pre-processing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#marker-genes-and-cluster-annotation">Marker genes and cluster annotation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#marker-genes-and-cluster-annotation">Marker genes and cluster annotation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilcoxon-test">Wilcoxon test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-approaches">Other approaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-data-using-prior-knowledge">Explore data using prior knowledge</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#save-results-for-future">Save results for future</a></li>
 </ul>
 
@@ -2588,9 +2593,176 @@ Name: HALLMARK_G2M_CHECKPOINT, Length: 201, dtype: object
 </div>
 <p>Here, we observe potentially characteristic gene expression patterns.</p>
 <p>Furthermore, the score itself is not interpretable in terms of specificity and significance in the case of clustering, because the clusters were previously defined as a group of cells being different from the rest. Therefore, we compare a group that is a priori different to the rest and the resulting scores (or p-values) are inflated. Furthermore, the smaller a cluster is, the smaller is the observed score, unless a gene is very specific to the cluster. Typically, we may find marker genes in the gene lists of the <code class="docutils literal notranslate"><span class="pre">rank_genes_groups</span></code> test, but not all marker genes have a high expression level.</p>
+<section id="wilcoxon-test">
+<h2>Wilcoxon test<a class="headerlink" href="#wilcoxon-test" title="Link to this heading">#</a></h2>
+<p>Seurat has a FindMarkers function (<a class="reference external" href="https://satijalab.org/seurat/reference/findmarkers">https://satijalab.org/seurat/reference/findmarkers</a>) to compute differentially expressed genes, and by default it performs wilcoxon test for a gene in two different groups (typically on z-scored/scaled data). We will use the rank_genes_groups function in Scanpy to do the same.</p>
+<p>On log normalized data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sc</span><span class="o">.</span><span class="n">tl</span><span class="o">.</span><span class="n">rank_genes_groups</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">groupby</span> <span class="o">=</span> <span class="s1">&#39;leiden&#39;</span><span class="p">,</span> <span class="n">groups</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">,</span> <span class="n">reference</span><span class="o">=</span><span class="s1">&#39;rest&#39;</span><span class="p">,</span> 
+                        <span class="n">key_added</span><span class="o">=</span><span class="s1">&#39;on_norm_log&#39;</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s1">&#39;wilcoxon&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Example output for Cluster 0:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_wt</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">rank_genes_groups_df</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="mi">0</span><span class="p">),</span> <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;on_norm_log&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_wt</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>names</th>
+      <th>scores</th>
+      <th>logfoldchanges</th>
+      <th>pvals</th>
+      <th>pvals_adj</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>FGL2</td>
+      <td>58.552078</td>
+      <td>2.490741</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>CPVL</td>
+      <td>56.514812</td>
+      <td>2.608812</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>LAP3</td>
+      <td>56.215076</td>
+      <td>2.082670</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>TNFSF10</td>
+      <td>55.252361</td>
+      <td>1.922799</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>JAK2</td>
+      <td>55.144421</td>
+      <td>1.915897</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>17693</th>
+      <td>RPS29</td>
+      <td>-45.930557</td>
+      <td>-0.408103</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>17694</th>
+      <td>RPS19</td>
+      <td>-46.330307</td>
+      <td>-0.402818</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>17695</th>
+      <td>RPSA</td>
+      <td>-46.638294</td>
+      <td>-0.685427</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>17696</th>
+      <td>MALAT1</td>
+      <td>-47.290688</td>
+      <td>-0.230423</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>17697</th>
+      <td>RPS3</td>
+      <td>-47.496426</td>
+      <td>-0.462448</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>17698 rows × 5 columns</p>
+</div></div></div>
+</div>
+<p>Get the results for each cluster and save:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">cluster</span> <span class="ow">in</span> <span class="n">np</span><span class="o">.</span><span class="n">unique</span><span class="p">(</span><span class="n">adata_clean</span><span class="o">.</span><span class="n">obs</span><span class="p">[</span><span class="s1">&#39;leiden&#39;</span><span class="p">]):</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">sc</span><span class="o">.</span><span class="n">get</span><span class="o">.</span><span class="n">rank_genes_groups_df</span><span class="p">(</span><span class="n">adata_clean</span><span class="p">,</span> <span class="n">group</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">cluster</span><span class="p">),</span> <span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;on_norm_log&#39;</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;path/to/save/wilcoxon_cluster_&#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cluster</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;_vs_rest.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="other-approaches">
+<h2>Other approaches:<a class="headerlink" href="#other-approaches" title="Link to this heading">#</a></h2>
+<p>If you wish to test other DEA approaches, please consider the following suggestings:</p>
+<ol class="arabic simple">
+<li><p>pseudobulk based edgeR analysis (<a class="reference external" href="https://www.sc-best-practices.org/conditions/differential_gene_expression.html">https://www.sc-best-practices.org/conditions/differential_gene_expression.html</a>)</p></li>
+<li><p>Memento: <a class="reference external" href="https://www.biorxiv.org/content/10.1101/2022.11.09.515836v1">https://www.biorxiv.org/content/10.1101/2022.11.09.515836v1</a>, <a class="github reference external" href="https://github.com/yelabucsf/scrna-parameter-estimation">yelabucsf/scrna-parameter-estimation</a></p></li>
+</ol>
+</section>
+<section id="explore-data-using-prior-knowledge">
+<h2>Explore data using prior knowledge<a class="headerlink" href="#explore-data-using-prior-knowledge" title="Link to this heading">#</a></h2>
 <p>When it comes to cluster annotation, we usually have to tap into prior knowledge of the cell type. Depending on the data set, this may involve extensive literature search.</p>
-<p>In the case of PBMCs, we may refer to several studies and single-cell RNA-sequencing data analysis tutorials to extract marker gene sets.
-The following list is extracted from the Seurat tutorial on PBMCs.</p>
+<p>In the case of PBMCs, we may refer to several studies and single-cell RNA-sequencing data analysis tutorials to extract marker gene sets.</p>
+<p>The following list is extracted from the Seurat tutorial on PBMCs.</p>
 <div class="pst-scrollable-table-container"><table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Marker Gene</p></th>
@@ -2824,6 +2996,7 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
 </div>
 </div>
 </section>
+</section>
 <section class="tex2jax_ignore mathjax_ignore" id="save-results-for-future">
 <h1>Save results for future<a class="headerlink" href="#save-results-for-future" title="Link to this heading">#</a></h1>
 <div class="cell docutils container">
@@ -2934,7 +3107,12 @@ You can use auxiliary plots like <code class="docutils literal notranslate"><spa
 </ul>
 </li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#re-do-pre-processing">Re-do pre-processing</a></li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#marker-genes-and-cluster-annotation">Marker genes and cluster annotation</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#marker-genes-and-cluster-annotation">Marker genes and cluster annotation</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#wilcoxon-test">Wilcoxon test</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#other-approaches">Other approaches:</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#explore-data-using-prior-knowledge">Explore data using prior knowledge</a></li>
+</ul>
+</li>
 <li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#save-results-for-future">Save results for future</a></li>
 </ul>
 
