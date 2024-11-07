@@ -7,32 +7,32 @@ The corresponding Jupyter Book is rendered [here](https://sarajimenez.github.io/
 ## Table of Contents
 
 - [Material](#Material)
-- [Session 1](#Session1)
-- [Session 2](#Session2)
-- [Session 3](#Session3)
-- [Session 4](#Session4)
+- [Session-1](#Session-1)
+- [Session-2](#Session-2)
+- [Session-3](#Session-3)
+- [Session-4](#Session-4)
 
 ## Material
 
 The data for each session can be found [here](https://drive.google.com/drive/folders/1mD36tCwFMJ5g4Fh5p5nptDXy_ObmK7ww?usp=sharing)
 
-## Session 1 
+## Session-1 
 
 1. Preprocessing and Quality Control (QC)
 2. Data normalization
 
-## Session 2
+## Session-2
 
 1. Dimensionality reduction 
 2. Clustering and annotation 
 3. DGE
 
-## Session 3
+## Session-3
 
 1. Trajectory analysis
 2. Multisample analysis 
 
-## Session 4
+## Session-4
 
 1. Introduction to spatial transcriptomics 
 
